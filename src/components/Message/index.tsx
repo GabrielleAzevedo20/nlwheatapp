@@ -28,7 +28,7 @@ export function Message({ data }: Props){
       style={styles.container}
     >
 
-      <Text>
+      <Text style={styles.message}>
         {data.text}
       </Text>
 
