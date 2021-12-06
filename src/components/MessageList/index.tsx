@@ -15,7 +15,7 @@ let messagesQueue: MessageProps[] = MESSAGES_EXAMPLE;
 const socket = io(String(api.defaults.baseURL));
 socket.on('new_message', (newMessage) => {
   messagesQueue.push(newMessage);
-
+  
 });
 
 export function MessageList(){
@@ -33,7 +33,7 @@ export function MessageList(){
   useEffect(() => {
     const timer = setInterval(() => { 
       if(messagesQueue.length > 0) {
-        setCurrentMessages(prevState => [messagesQueue[0], prevState[1], prevState[2]]);
+        setCurrentMessages(prevState => [messagesQueue[0], prevState[0], prevState[1]]);
         messagesQueue.shift();
       }
     }, 3000)
